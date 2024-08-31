@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block main %}
+{%if correct_answers!=0 %}
+<h1> Congratulations you got {{correct_answers}} correct</h1>
+{%else%}
+<h1> Wow {{correct_answers}} correct answers </h1>
+{%endif%}
+
+<div class="resultsImg">
+{%if correct_answers==10%}
+    <img src="{{ url_for('static', filename='high.jpeg') }}">
+
+{% elif 9 >= correct_answers >= 3 %}
+    <img src="{{ url_for('static', filename='mid.jpeg') }}">
+{%else%}
+    <img src="{{ url_for('static', filename='low.jpeg') }}">
+
+{%endif%}
+</div>
+<form method="post" action="/leaderboard">
+
+    <button type="submit" class="btn btn-success">Leaderboard</button>
+</form>
+
+
+{% endblock %}

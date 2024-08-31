@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">USERNAME</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+    {%for score in board%}
+      <tr>
+        <th scope="row">{{score.username}}</th>
+        <td>{{score.score}}</td>
+      </tr>
+      
+    {%endfor%}
+
+
+    </tbody>
+  </table>
+  <form method="post" action="/">
+
+    <button type="submit" class="btn btn-success">Retry</button>
+</form>
+
+
+
+{% endblock %}

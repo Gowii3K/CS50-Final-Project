@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quiz
+{% endblock %}
+
+{% block main %}
+
+<form class="quiz" method="post" action="/results">
+
+
+    {% for key, value in questions.items() %}
+
+
+
+    <div class="question" style="display: none;">
+        <fieldset>
+            <h2>{{key}}</h2></br>
+            <input type="radio" value={{value[1][0:]}} name={{value[0]}} id="{{value[1][0]}}" required>
+            <label for="{{value[1][0]}}" class="options">{{value[1][0]}}</label></br>
+            <input type="radio" value={{value[1][1]}} name={{value[0]}} id="{{value[1][1]}}">
+            <label for="{{value[1][1]}}" class="options">{{value[1][1]}}</label></br>
+            <input type="radio" value={{value[1][2]}} name={{value[0]}} id="{{value[1][2]}}">
+            <label for="{{value[1][2]}}" class="options">{{value[1][2]}}</label></br>
+            <input type="radio" value={{value[1][3]}} name={{value[0]}} id="{{value[1][3]}}">
+            <label for="{{value[1][3]}}" class="options">{{value[1][3]}}</label></br>
+        </fieldset>
+    </div>
+
+
+
+    {%endfor%}
+
+    <button class="btn btn-info" type="button" id="prev-btn" onclick="prevQuestion()">Prev</button>
+    <button class="btn btn-info" type="button" id="next-btn" onclick="nextQuestion()">Next</button>
+
+    <button class="btn btn-success" type="submit" id="submit-btn" style="display: none;">Submit</button>
+
+</form>
+
+<script>
+    const max_questions = 10;
+    let current_question = 0;
+    const questions = document.querySelectorAll('.question');
+    const next_button = document.querySelector('#next-btn');
+    const submit_button = document.querySelector('#submit-btn');
+    const prev_button = document.querySelector('#prev-btn')
+
+
+    function display_question(question_no) {
+        for (let i = 0; i < max_questions; i++) {
+            if (i === question_no) {
+                questions[i].style.display = 'block'// only display the relevent question 
+            }
+            else {
+                questions[i].style.display = 'none'
+            }
+
+
+
+            if (question_no === (max_questions - 1)) {
+                submit_button.style.display = 'inline'
+                next_button.style.display = 'none'
+            }
+            if (question_no === 0) {
+                prev_button.style.display = 'none'//remove prev option for the 1st question
+            }
+            else {
+                prev_button.style.display = 'inline'
+            }
+
+            updateSubmitButton()
+
+
+        }
+    }
+    function nextQuestion() {
+        current_question++
+        display_question(current_question)
+    }
+    function prevQuestion() {
+        current_question--
+        display_question(current_question)
+    }
+
+    display_question(current_question)
+
+    function updateSubmitButton() {
+        if (current_question != (max_questions-1)) {
+            submit_button.style.display = 'none'
+            next_button.style.display = 'inline'
+            
+            console.log(current_question)
+
+
+        }
+        else {
+            submit_button.style.display = 'inline'//show submit option only in the last question
+            console.log('wwwwww')
+            
+
+
+        }
+    }
+</script>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,72 @@
+#submit-btn{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#prev-btn{
+    margin-right: auto;
+    margin-left: auto;
+    margin: 10px;
+
+}
+#next-btn{
+    margin-right: auto;
+    margin-left: auto;
+    margin: 10px;
+
+
+}
+
+body{
+    background-image: url(er2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: azure;
+    
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Mantinia', sans-serif;
+}
+
+.homeTitle
+{
+    font-size: 5em;
+    color:#e8890c;
+}
+.quote{
+    color: greenyellow;
+}
+
+input[type='radio']{
+    appearance: none;
+}
+
+.options{
+    width: 500px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+
+input[type='radio']:checked+.options{
+    background-color: green;
+    color: white;
+}
+
+img{
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+button{
+    margin: 10px;
+}
+

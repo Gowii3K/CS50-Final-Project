@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<p class="homeTitle">Glimpse of Grace</p>
+<h2 class="homeDesc">"Foul Tarnished, In search of the Elden Ring. Emboldened by the flame of ambition. Someone must
+    extinguish thy
+    flame. Let it be This random lore quiz"</h1>
+    <h3 class="quote"><i>- Margit the Quiz Omen</i></h3>
+    <form method="post" action="/question">
+        <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="username" placeholder="Username" name="username" autofocus>
+              <label for="floatingInputGroup1">Enter Username</label>
+            </div>
+          </div>
+
+        <button type="submit" class="btn btn-success">Start</button>
+    </form>
+
+    {% endblock %}
