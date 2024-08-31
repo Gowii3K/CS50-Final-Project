@@ -1,6 +1,5 @@
 # Glimpse of Grace
 #### Video Demo:  https://youtu.be/2jJmhz-4_3A
-#### Description:
 
 ## Overview
 The project is a web application which presents a quiz to the user about the popular video game "Elden Ring". The technologies used in building this application are Python, Flask, Jinja, HTML, CSS, JavaScript, SQLite3 and Bootstrap.
